@@ -15,9 +15,10 @@
     "webpack-dev-server": "^2.9.4"
   },
   "dependencies": {
+    "express": "*",
+    "moment": "^2.20.1",
     "react": "^0.14.7",
     "react-dom": "^0.14.7",
-    "express": "*",
     "socket.io": "*",
     "socket.io-client": "*"
   }
