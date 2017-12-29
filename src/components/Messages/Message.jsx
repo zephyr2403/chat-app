@@ -3,8 +3,10 @@ import React,{Component} from 'react';
 class Message extends Component{
   render(){
     return(
-      <div className="ui segment animated fadeIn">
-        <strong>{this.props.message.timeStamp}</strong> {this.props.message.text}
+      <div className="ui segment animated bounceIn">
+        <strong>{this.props.message.user}</strong><span style={{float:'right'}}><i>{this.props.message.timeStamp}</i></span>
+      <div className="ui divider"></div>
+      {this.props.message.text}
       </div>
     )
   }

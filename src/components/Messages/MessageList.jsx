@@ -3,14 +3,7 @@ import Message from './Message.jsx'
 
 class MessageList extends Component{
   render(){
-    //console.log(this.props.messages)
-    var messArray = this.props.messages
-    //console.log(messArray.length)
-    //console.log(messArray)
-    var newMess = this.props.messages[(this.props.messages).length-1]
-    //console.log(newMess)
-
-    console.log(newMess)
+    var messArray = this.props.messages;
     return(
       <div>
           {

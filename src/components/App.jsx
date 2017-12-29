@@ -18,29 +18,50 @@ class App extends Component{
       user:"",
     }
   }
+
   emit(eventName,payload){
     this.socket.emit(eventName,payload);
   }
+
+  setUser(user){
+    this.setState({user:user})
+  }//setUser
+
   connect(){
     this.setState({status:'connected'});
     //console.log('Connected: '+ this.socket.id)
-  }
+  }//connected
+
+  onUserJoined(users){
+    this.setState({users:users})
+  }//onUserJoined
+
   componentWillMount(){
     this.socket = io('http://localhost:3000')
     this.socket.on('connect',this.connect.bind(this));
+    this.socket.on('disconnect',this.disconnect.bind(this));
     this.socket.on('messageAdded',this.onMessageAdded.bind(this));
-    }
-    disconnect(){
+    this.socket.on('userJoined',this.onUserJoined.bind(this));
+  }//componentWillMount
+
+    disconnect(users){
+      this.setState({users:users})
       this.setState({status:'disconnected'})
-    }
+    }//disconnected
+
   onMessageAdded(message){
     this.setState({
       messages:this.state.messages.concat(message)
     })
-
-  }
+  }//onMessageAdded
   render(){
-    console.log(this.state.messages)
+
+    if(this.state.user == ''){
+      return(
+       <UserForm emit={this.emit.bind(this)} setUser={this.setUser.bind(this)} />
+      )
+    }
+    else{
     return(
       <div className="ui two column grid">
         <div className="three wide column">
@@ -52,6 +73,7 @@ class App extends Component{
         </div>
       </div>
     )
+   }
   }
 }
 
