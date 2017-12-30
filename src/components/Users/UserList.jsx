@@ -5,7 +5,7 @@ class UserList extends Component{
   render(){
     return(
       <div>
-        <div className='ui raised segment'>Total Users : {this.props.users.length}</div>
+        <div className='ui raised segment'>Users<div className='ui divider'></div>{this.props.users.length}</div>
 
 
                {

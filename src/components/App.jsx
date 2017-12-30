@@ -12,7 +12,7 @@ class App extends Component{
       status:'disconnected',
       messages:[{
         timeStamp: '',
-        text:'Welcome To CyberChat'
+        text:''
       }],
       users:[],
       user:"",
@@ -27,12 +27,14 @@ class App extends Component{
     this.setState({user:user})
   }//setUser
 
-  connect(){
+  connect(serverMessage){
+    console.log(serverMessage)
     this.setState({status:'connected'});
     //console.log('Connected: '+ this.socket.id)
   }//connected
 
-  onUserJoined(users){
+  onUserJoined(users,serverMessage){
+    this.setState({messages:serverMessage})
     this.setState({users:users})
   }//onUserJoined
 
