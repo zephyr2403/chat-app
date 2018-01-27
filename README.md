@@ -9,7 +9,7 @@ A Chat Application uses **NodeJs** at *Backend*, **ReactJs** For *Front End* and
 * A side panel to show total number of user and  username of all users   
 * Username and time is attached to the sent message
 
-### Make sure the following tasks are performed before using :
+### Make sure following tasks are performed before using :
 
 * Download and place the dist folder of semantic UI and animate.css inside app/css  
 * Place jquery-1.9.1.js and semantic.min.js inside app/js  
